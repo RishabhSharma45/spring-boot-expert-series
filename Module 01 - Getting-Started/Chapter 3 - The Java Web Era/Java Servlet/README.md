@@ -68,7 +68,7 @@ User → Browser → HTTP Request → Servlet Container (Tomcat) → Servlet Cod
 
 
 ## 💻 CGI Example (Old Style — C/C++ or Perl)
-
+---
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -81,6 +81,7 @@ int main() {
     printf("</body></html>");
     return 0;
 }
+---
 
 ❌ CGI Issues:
 
