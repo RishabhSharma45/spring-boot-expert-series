@@ -1,4 +1,4 @@
-# 🌐 Chapter 3: The Java Web Era - Servlet
+# Java Servlet ❣
 
 ## 🌍 How the Web Used to Work?
 
