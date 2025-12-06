@@ -68,7 +68,7 @@ User → Browser → HTTP Request → Servlet Container (Tomcat) → Servlet Cod
 
 
 ## 💻 CGI Example (Old Style — C/C++ or Perl)
----
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -81,20 +81,17 @@ int main() {
     printf("</body></html>");
     return 0;
 }
----
+```
 
-❌ CGI Issues:
+## ❌ CGI Issues:
 
-every request, new process create
+- every request, new process create
+- Heavy load → crash
+- Memory waste
+- Platform dependent
 
-Heavy load → crash
-
-Memory waste
-
-Platform dependent
-
-☕ Java Servlet Example (Same Feature)
-
+## ☕ Java Servlet Example (Same Feature)
+```java
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -113,6 +110,7 @@ public class MyServlet extends HttpServlet {
         out.println("</body></html>");
     }
 }
+```
 
 | Feature                 | CGI (C code)       | Servlet (Java code)             |
 | ----------------------- | ------------------ | ------------------------------- |
@@ -123,6 +121,7 @@ public class MyServlet extends HttpServlet {
 | Platform Dependent      | Haan ❌             | Pure Java ✔ Portable            |
 | Server Memory           | Wasted             | Efficient                       |
 
+---
 
 # 🌐 Web Server vs Application Server — Straight & Clear
 
@@ -249,6 +248,7 @@ public class MyFirstServlet extends HttpServlet {
         out.println("<p>Yeh tera pehla servlet chal gaya 🚀</p>");
     }
 }
+```
 
 🧠 Line-by-Line Explanation
 | Code / Keyword                            | Meaning 😎                                     |
@@ -259,7 +259,9 @@ public class MyFirstServlet extends HttpServlet {
 | `PrintWriter out = response.getWriter();` | Output stream jisse hum HTML print karte       |
 | `out.println(...)`                        | Actual HTML content 😍                         |
 
-⚙️ Step 3️⃣ — web.xml Mapping (Set URL)
+---
+
+## ⚙️ Step 3️⃣ — web.xml Mapping (Set URL)
 
 Open WebContent/WEB-INF/web.xml aur add karo:
 
@@ -280,7 +282,9 @@ Open WebContent/WEB-INF/web.xml aur add karo:
 | `<servlet-class>` | Class ka path system ko batata hai   |
 | `<url-pattern>`   | Kaunse URL par access hoga — Routing |
 
-🚀 Step 4️⃣ — Run on Server
+---
+
+## 🚀 Step 4️⃣ — Run on Server
 
 Project pe right-click → Run As → Run on Server
 
@@ -290,23 +294,27 @@ Browser me jao:
 
 http://localhost:8080/HelloRishabhServlet/rishabh
 
-🎉 Output:
+---
+
+> 🎉 Output:
+
 Hello Rishabh Bhai! 😎
 Yeh tera pehla servlet chal gaya 🚀
 
-Ab aate hain Servlet Lifecycle pe — yaha REAL GAME START hota hai! 🎮🔥
+---
+## Ab aate hain Servlet Lifecycle pe — yaha REAL GAME START hota hai! 🎮🔥
 
 Servlet ka lifecycle matlab:
 
 Server servlet ko kaise janam deta, chalata aur maar deta hai 😄
 
-Servlet ke lifecycle me 3 main methods hote hain:
+### Servlet ke lifecycle me 3 main methods hote hain:
 
-1️⃣ init() → “Janam” 👶
-2️⃣ service() → “Kaam-Dhanda / Duty” 🕶️
-3️⃣ destroy() → “The End” ⚰️
+- 1️⃣ init() → “Janam” 👶 
+- 2️⃣ service() → “Kaam-Dhanda / Duty” 🕶️
+- 3️⃣ destroy() → “The End” ⚰️
 
-🚦 Servlet Lifecycle Flow (Easy Hinglish Version)
+### 🚦 Servlet Lifecycle Flow (Easy Hinglish Version)
 
 Jab first request aati hai:
 
@@ -320,7 +328,7 @@ Jab first request aati hai:
 ▶ Servlet initialize hota
 ▶ Ye sirf ek baar call hota
 
-Jab multiple user requests aayengi:
+### Jab multiple user requests aayengi:
 
 ④ service() call hota baar baar
 ▶ Request type check karta
@@ -349,7 +357,8 @@ init() → service() → service() → service() →
 .
 destroy()
 
-🧠 Practical Example Code
+### 🧠 Practical Example Code
+```java
 public class MyLifeServlet extends HttpServlet {
 
     @Override
@@ -375,25 +384,30 @@ public class MyLifeServlet extends HttpServlet {
         resp.getWriter().println("Hello Rishabh! 🚀");
     }
 }
+```
 
-🎤 Ek Dialogue yaad rakhne ke liye
+### 🎤 Ek Dialogue yaad rakhne ke liye
 
-“Servlet paida ek baar hota hai, kaam hazaar baar karta hai, aur marta bhi ek baar hi hai!” 😎🔥
+> “Servlet paida ek baar hota hai, kaam hazaar baar karta hai, aur marta bhi ek baar hi hai!” 😎🔥
 
-👍 Key Interview Points
-Concept	Short & Sweet
-init()	Sirf ek baar call hota, initialization ke liye
-service()	Har request ko handle karta
-doGet/doPost	service() inko call karta request type ke hisaab se
-destroy()	Servlet band hone se pehle clean-up    
+---
 
-Ab aaye Deployment Descriptor (web.xml) pe — Servlet world ka Dil + Dimag 🧠❤️
+> 👍 Key Interview Points
+- Concept	Short & Sweet
+- init()	Sirf ek baar call hota, initialization ke liye
+- service()	Har request ko handle karta
+- doGet/doPost	service() inko call karta request type ke hisaab se
+- destroy()	Servlet band hone se pehle clean-up
 
-📌 Deployment Descriptor = web.xml
+---
 
-✔ Java Web App ka configuration file
-✔ Batata hai server ko kis servlet ko kis URL par chalana hai
-✔ WEB-INF folder me hota hai
+## Ab aaye Deployment Descriptor (web.xml) pe — Servlet world ka Dil + Dimag 🧠❤️
+
+### 📌 Deployment Descriptor = web.xml
+
+- ✔ Java Web App ka configuration file
+- ✔ Batata hai server ko kis servlet ko kis URL par chalana hai
+- ✔ WEB-INF folder me hota hai
 
 👉 Isse tu bol sakta hai:
 
@@ -414,8 +428,9 @@ Web.xml Section	Kaam
 <error-page>	Custom error handling
 🔥 Most Important — Servlet Mapping
 
-Example for our Servlet 👇
+### Example for our Servlet 👇
 
+```
 <servlet>
     <servlet-name>myservlet</servlet-name>
     <servlet-class>com.rishabh.servlet.MyFirstServlet</servlet-class>
@@ -426,8 +441,9 @@ Example for our Servlet 👇
     <url-pattern>/rishabh</url-pattern>
 </servlet-mapping>
 
+```
 
-🎯 Iska matlab:
+### 🎯 Iska matlab:
 
 ➡ URL hit:
 /rishabh
@@ -461,7 +477,8 @@ Context Parameters (Global variables)
 
 🧠 Database ya email config by default yahi likhte the (Spring se pehle)
 
-🚀 Short Summary For Interview
+### 🚀 Short Summary For Interview
+
 Point	Remember
 File Name	web.xml
 Folder	WEB-INF
@@ -471,24 +488,24 @@ Old Era	Servlet config web.xml me hoti thi
 New Era	Annotation based (e.g. @WebServlet) in Servlet 3.0+
 ✨ Premium Dialogue to Remember
 
-“web.xml bolta hai — kis darwaze par knock karoge, kaunsa banda (servlet) khulega.” 😎🔑🚪    
+> “web.xml bolta hai — kis darwaze par knock karoge, kaunsa banda (servlet) khulega.” 😎🔑🚪    
 
 
-🔥 Why Annotation?
+## 🔥 Why Annotation?
 
 Purane time me har servlet ke liye web.xml me 8–10 line likho… boring & time waste 🥱
 Ab:
 
-✔ Faster development
-✔ No XML headache
-✔ Readability ↑
-✔ Less files, less config
-✔ Code aur configuration saath-saath 😍
+- ✔ Faster development
+- ✔ No XML headache
+- ✔ Readability ↑
+- ✔ Less files, less config
+- ✔ Code aur configuration saath-saath 😍
 
-⚙️ Servlet 3.0+ Annotation — @WebServlet
+### ⚙️ Servlet 3.0 + Annotation — @WebServlet
 
 Example 👇
-
+```java
 package com.rishabh.servlet;
 
 import java.io.IOException;
@@ -509,8 +526,10 @@ public class AnnotationServlet extends HttpServlet {
         out.println("<p>Rishabh Bhai, Annotation ne khel badal diya! 🔥</p>");
     }
 }
+```
 
-🧠 What did we just do?
+### 🧠 What did we just do?
+
 Feature	XML Era	Annotation Era
 Mapping	web.xml required	Only @WebServlet
 Config visibility	Different file	Same class → easy
@@ -518,18 +537,18 @@ Project size	More files	Reduced
 Speed	Slow setup	Fast & clean
 💪 Useful Options in @WebServlet
 
-You can use multiple URL routes:
-
+### You can use multiple URL routes:
+```java
 @WebServlet(urlPatterns = {"/one", "/two"})
+```
 
-
-Load servlet at startup:
-
+### Load servlet at startup:
+```java
 @WebServlet(urlPatterns="/test", loadOnStartup=1)
+```
 
-
-Init params:
-
+### Init params:
+```java
 @WebServlet(
     urlPatterns="/db",
     initParams = {
@@ -537,24 +556,27 @@ Init params:
         @WebInitParam(name="pass", value="1234")
     }
 )
+```
 
+> 🧠 Ab servlet ke constructor jaisa config mil gaya → web.xml ki jarurat nahi!
 
-🧠 Ab servlet ke constructor jaisa config mil gaya → web.xml ki jarurat nahi!
+### 🔥 Short Interview Pointers
 
-🔥 Short Interview Pointers
 Question	Solid Answer
 Servlet mapping kahan hota hai?	@WebServlet annotation or web.xml
 Servlet 3.0 introduced what?	Annotation-based config + Pluggability
 What is Pluggability?	Servlets without web.xml
 
-🚦 HTTP Servlet Request & Response
+----
+
+## 🚦 HTTP Servlet Request & Response
 
 Web ka communication request-response model pe chalta hai:
 
 Client bheje Request → Server bheje Response
 Yeh cycle chalta hi rehta hai 🔁 😎
 
-1️⃣ HttpServletRequest → Client ki taraf se jo aata hai 🌐➡️🛠️
+### 1️⃣ HttpServletRequest → Client ki taraf se jo aata hai 🌐➡️🛠️
 
 User ne kya bheja?
 
@@ -576,7 +598,7 @@ request.getHeader("User-Agent");// Browser details
 request.getCookies();           // Cookies array
 request.getRemoteAddr();        // Client IP
 
-2️⃣ HttpServletResponse → Server ki taraf se jo jata hai 🛠️➡️🌐
+### 2️⃣ HttpServletResponse → Server ki taraf se jo jata hai 🛠️➡️🌐
 
 Server kya bhej sakta hai?
 
@@ -592,10 +614,10 @@ response.setContentType("text/html"); // Browser ko batao content type
 PrintWriter out = response.getWriter();
 out.println("Hello Response 🚀");
 
-🧠 Example — Combining Both
+### 🧠 Example — Combining Both
 
 Form se naam bheja & response me show kiya:
-
+```java
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp)
         throws IOException {
@@ -607,8 +629,9 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
     PrintWriter out = resp.getWriter();
     out.println("<h2>Welcome " + name + " 💫</h2>");
 }
+```
 
-🎯 Interview Style Points
+### 🎯 Interview Style Points
 Feature	Request	Response
 Direction	Client → Server	Server → Client
 Carries	Input data, metadata	Output, status, headers
@@ -627,10 +650,11 @@ Status Codes	200 OK, 404 Not Found, 500 Server Error
 Encoding	UTF-8 for global language support
 ✨ Ek Rapchik Dialogue Yaad Rakh
 
-“Request aati hai tab duniya chalti hai, Response jaata hai tab result dikhta hai!” 😎🔥   
+---
+> “Request aati hai tab duniya chalti hai, Response jaata hai tab result dikhta hai!” 😎🔥   
+---
 
-
-1️⃣ HTTP GET vs POST – Antar
+## 1️⃣ HTTP GET vs POST – Antar
 Feature	GET	POST
 Request Body	Nahi (data URL me jata)	Haan (data body me jata)
 URL Length	Limited (~2000 chars)	Unlimited practically
@@ -645,7 +669,9 @@ Example	http://site.com?user=rishabh	Form submit with hidden data
 GET = Chhota aur safe fetching
 POST = Bada aur secret data submit karna
 
-2️⃣ doGet() vs doPost() – Internals
+---
+## 2️⃣ doGet() vs doPost() – Internals
+```java
 @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException {
@@ -657,9 +683,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws IOException {
     response.getWriter().println("POST Request Received 🔥");
 }
+```
 
-
-Internals:
+### Internals:
 
 service() method decide karta hai ki GET → doGet(), POST → doPost()
 
@@ -667,7 +693,8 @@ doGet() = Mostly read operations
 
 doPost() = Mostly write operations
 
-3️⃣ Form Handling – GET & POST Example
+---
+## 3️⃣ Form Handling – GET & POST Example
 HTML Form (GET)
 <form action="rishabh" method="GET">
   Name: <input type="text" name="username">
@@ -690,7 +717,9 @@ Data hidden in request body, URL clean
 
 Security & big data submissions ke liye best 😎
 
-4️⃣ Query Params vs Body Params
+---
+
+## 4️⃣ Query Params vs Body Params
 Feature	Query Params	Body Params
 Location	URL	Request Body
 Max Size	~2000 chars	Practically Unlimited
@@ -707,12 +736,15 @@ Example POST:
 
 Body: { "username": "rishabh", "pass": "123" }
 
-5️⃣ Redirect vs Forward (Servlet World)
+---
+## 5️⃣ Redirect vs Forward (Servlet World)
 Feature	Redirect	Forward
 Browser URL	Change ho jata	Same rahta
 Client request	Naya request karta	Same request pass
 Server load	Extra request → thoda zyada	Efficient, server side hi handle
 Use Case	Login success → dashboard	Servlet to JSP data pass
+
+---
 Example Servlet Redirect
 response.sendRedirect("dashboard.jsp");
 
