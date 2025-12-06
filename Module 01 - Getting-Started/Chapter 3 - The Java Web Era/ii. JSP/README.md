@@ -53,6 +53,7 @@ Example-
 
 - **2. Directive Tag**
   Controls Behaviour and Configurations
+  
 | Directive   | Syntax                   | Purpose                    |
 | ----------- | ------------------------ | -------------------------- |
 | **page**    | `<%@ page ... %>`        | Import, error, buffer etc. |
@@ -66,6 +67,7 @@ Example -
 ``` 
 - **3. Associative Tag**
   for Servlet/JSP communication
+  
 | Action              | Syntax            | Purpose |
 | ------------------- | ----------------- | ------- |
 | `<jsp:useBean>`     | Bean create       |         |
