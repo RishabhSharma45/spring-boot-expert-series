@@ -718,15 +718,3 @@ response.sendRedirect("dashboard.jsp");
 Example Servlet Forward
 RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
 rd.forward(request, response);
-
-
-
-
-
-
-
-
-
-
-## 🔄 High-Level Flow
-
