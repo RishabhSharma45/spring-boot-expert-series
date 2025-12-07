@@ -88,6 +88,44 @@ dealt with them . thus programmer more thinks on logic building.
 - heavy xml
 - slow deployment
 
+---
+
+## Spring Modules
+Spring is not just a single entity . it actually made of many small things which later becomes a single brochure known as **Spring**
+
+here Spring is *universe* and it have many *planets* known as it's MODULE - **Spring Modules**
+
+### Core Container Modules -
+
+**Spring Core** -  Dependency Injection Works their
+
+**Spring Beans** - configure , define , wire and manage lifecycle of bean
+
+**Spring Context** - Application Context , Internationalization and Resousrce Loading.
+
+**etc**
+
+### Data Related Module -
+
+**Spring JPA**
+
+**Spring ORM**
+
+**Spring Data**
+
+**etc**
+
+### Security Related
+
+**Spring Security** 
+
+**etc**
+
+### Web Realated Modules
+
+**Spring MVC**
+
+**etc**
 
 
 
