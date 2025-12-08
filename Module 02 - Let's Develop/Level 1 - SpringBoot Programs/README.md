@@ -80,7 +80,7 @@ application.properties me MySQL ka config likho aur entity se table connect karo
 
 Ek chhota sa example likho jisme Basic Authentication lagao.
 
-18. **Actuator Example** ❗
+18. **Actuator Example**
 
 Actuator enable karo aur /actuator/health endpoint ka code likho.
 
