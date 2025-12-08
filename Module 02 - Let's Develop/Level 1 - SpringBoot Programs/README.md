@@ -76,18 +76,18 @@ Pageable aur Sort ka use karke API likho.
 
 application.properties me MySQL ka config likho aur entity se table connect karo.
 
-17. **Spring Boot Security Basic Auth**
+17. **Spring Boot Security Basic Auth** ❗
 
 Ek chhota sa example likho jisme Basic Authentication lagao.
 
-18. **Actuator Example**
+18. **Actuator Example** ❗
 
 Actuator enable karo aur /actuator/health endpoint ka code likho.
 
-19. **Spring Boot Scheduler**
+19. **Spring Boot Scheduler** ❗
 
 @Scheduled use karke ek task likho jo har 10 second me chale.
 
-20. **Spring Boot File Upload API**
+20. **Spring Boot File Upload API** ❗
 
 REST API likho jisme ek file upload karke local folder me save ho.
