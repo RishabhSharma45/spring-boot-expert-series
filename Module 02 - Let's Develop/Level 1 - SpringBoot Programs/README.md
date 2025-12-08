@@ -84,7 +84,7 @@ Ek chhota sa example likho jisme Basic Authentication lagao.
 
 Actuator enable karo aur /actuator/health endpoint ka code likho.
 
-19. **Spring Boot Scheduler** ❗
+19. **Spring Boot Scheduler**
 
 @Scheduled use karke ek task likho jo har 10 second me chale.
 
